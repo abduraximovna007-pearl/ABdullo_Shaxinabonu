@@ -904,6 +904,117 @@
         }
 
         /* ============================================================
+           LOCATION SECTION (Manzil bo'limi)
+           ============================================================ */
+        .location-section {
+            padding: 65px 20px;
+        }
+
+        .location-wrapper {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-gold);
+            border-radius: 28px;
+            padding: 50px 30px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .venue-name {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: #ffffff;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 14px rgba(212, 175, 55, 0.35);
+        }
+
+        .location-info-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            font-size: clamp(1rem, 2.8vw, 1.15rem);
+            color: var(--text);
+        }
+
+        .info-item i {
+            color: var(--gold);
+            font-size: 1.25rem;
+            width: 22px;
+            text-align: center;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 340px;
+            margin: 25px auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: invert(90%) hue-rotate(180deg) contrast(100%);
+        }
+
+        .btn-route {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 42px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            border-radius: 35px;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-route::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            z-index: -1;
+            transition: transform 0.4s ease;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+
+        .btn-route:hover {
+            color: #0b0a09;
+        }
+
+        .btn-route:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* ============================================================
            TILAKLAR BO'LIMI (Wishes Section)
            ============================================================ */
         .wishes-wrapper {
@@ -1197,8 +1308,13 @@
             }
 
             .wishes-wrapper,
-            .quote-section {
+            .quote-section,
+            .location-wrapper {
                 padding: 30px 16px;
+            }
+
+            .map-container {
+                height: 260px;
             }
 
             .royal-date-emblem {
@@ -1229,7 +1345,8 @@
             }
 
             .quote-section,
-            .wishes-wrapper {
+            .wishes-wrapper,
+            .location-wrapper {
                 max-width: 760px;
                 margin: 0 auto;
             }
@@ -1438,6 +1555,43 @@
                 <div class="count-num" id="seconds">00</div>
                 <div class="count-text">Soniya</div>
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         LOCATION SECTION (Manzil: Qiziltepa tumani "Shodiyona" to'yxonasi)
+         ============================================================ -->
+    <section class="location-section">
+        <h2 class="section-title reveal">To'y Manzili</h2>
+
+        <div class="location-wrapper reveal">
+            <h3 class="venue-name serif">"Shodiyona" to'yxonasi</h3>
+
+            <div class="location-info-list">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Qiziltepa tumani, "Shodiyona" to'yxonasi</span>
+                </div>
+                <div class="info-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>14 Noyabr 2026-yil, Shanba</span>
+                </div>
+                <div class="info-item">
+                    <i class="far fa-clock"></i>
+                    <span>Soat 18:00</span>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=Shodiyona+to'yxonasi+Qiziltepa&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <a href="https://maps.google.com/?q=Shodiyona+Qiziltepa" target="_blank" rel="noopener" class="btn-route">
+                <i class="fas fa-location-arrow"></i>
+                <span>Yo'lni ochish</span>
+            </a>
         </div>
     </section>
 
